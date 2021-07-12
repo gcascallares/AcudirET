@@ -1,0 +1,60 @@
+﻿@model AcudirET.Pedido
+@{
+    ViewBag.Title = "PedidoManager";
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">
+            @{string titulo = Model.Id == 0 ? "Nuevo Pedido" : "Editar Pedido";}
+            @titulo
+        </h6>
+    </div>
+    <div class="card-body">
+        <form class="user" action="/Pedido/PedidoManager" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" class="form-control form-control-user" id="Id" name="Id" value="@Model.Id" style="display:none;">
+                <input type="text" class="form-control form-control-user" id="Observacion" name="Observacion" value="@Model.Observacion" placeholder="Observaciones">
+            </div>
+            <div class="form-group">
+                <div class="form-select">
+                    @Html.DropDownListFor(x => x.ClienteId, (IEnumerable<SelectListItem>)ViewBag.Cliente, "Cliente", new { id = "ClienteId", required = true })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-select">
+                    @Html.DropDownListFor(x => x.RepartidorId, (IEnumerable<SelectListItem>)ViewBag.Repartidor, "Repartidor", new { id = "RepartidorId", required = true })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-select">
+                    @Html.DropDownListFor(x => x.MedioPagoId, (IEnumerable<SelectListItem>)ViewBag.MedioDePago, "Medio De Pago", new { id = "MedioDePagoId", required = true })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-select">
+                    @Html.DropDownListFor(x => x.EstadoId, (IEnumerable<SelectListItem>)ViewBag.EstadoPedido, "Estado Pedido", new { id = "EstadoPedidoId", required = true })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-select">
+                    @Html.DropDownListFor(x => x.ProductoId, (IEnumerable<SelectListItem>)ViewBag.Producto, "Producto", new { id = "ProductoId", required = true })
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control form-control-user" id="Cantidad" name="Cantidad" value="@Model.Cantidad">
+            </div>
+            @if (Model.Id>0)
+            {
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-user" id="PrecioFinal" name="PrecioFinal" value="@Model.PrecioFinal">
+                </div>
+
+            }
+            <button type="submit" class="btn btn-primary btn-user btn-block">Guardar</button>
+            <a href="/Pedido/PedidoList" class="btn btn-primary btn-user btn-block">
+                Cancelar
+            </a>
+        </form>
+    </div>
+</div>
+

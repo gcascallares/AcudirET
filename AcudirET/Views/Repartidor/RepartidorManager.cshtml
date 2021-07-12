@@ -1,0 +1,25 @@
+﻿@model AcudirET.Repartidor
+@{
+    ViewBag.Title = "RepartidorManager";
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">
+            @{string titulo = Model.Id == 0 ? "Nuevo Repartidor" : "Editar Repartidor";}
+            @titulo
+        </h6>
+    </div>
+    <div class="card-body">
+        <form class="user" action="/Repartidor/RepartidorManager" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" class="form-control form-control-user" id="Id" name="Id" value="@Model.Id" style="display:none;">
+                <input type="text" class="form-control form-control-user" id="Nombre" name="Nombre" value="@Model.Nombre" placeholder="Ingrese el nombre del repartidor">
+            </div>
+            <button type="submit" class="btn btn-primary btn-user btn-block">Guardar</button>
+            <a href="/Repartidor/RepartidorList" class="btn btn-primary btn-user btn-block">
+                Cancelar
+            </a>
+        </form>
+    </div>
+</div>
+

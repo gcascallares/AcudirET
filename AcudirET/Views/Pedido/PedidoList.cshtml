@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "PedidoList";
+}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Pedidos</h1>
+    <!-- DataTales-->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Numero</th>
+                            <th>Nombre Cliente</th>
+                            <th>Medio de pago</th>
+                            <th>Precio final</th>
+                            <th>Observaciones</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Estado</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Pedido item in ViewBag.Pedidos)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Cliente.Nombre</td>
+                                <td>@item.MedioDePago.Descripcion</td>
+                                <td>@item.PrecioFinal</td>
+                                <td>@item.Observacion</td>
+                                <td>@item.Producto.Descripcion</td>
+                                <td>@item.Cantidad</td>
+                                <td>@item.EstadoPedido.Descripcion</td>
+                                <td><a href="/Pedido/PedidoManager/@item.Id" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-info"></i></a><a href="/Pedido/DeletePedido/@item.Id" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

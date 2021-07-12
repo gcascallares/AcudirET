@@ -1,0 +1,27 @@
+﻿@model AcudirET.Producto
+@{
+    ViewBag.Title = "ProductoManager";
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">
+            @{string titulo = Model.Id == 0 ? "Nuevo Gusto" : "Editar Gusto";}
+            @titulo
+        </h6>
+    </div>
+    <div class="card-body">
+        <form class="user" action="/Pedido/PedidoManager" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" class="form-control form-control-user" id="Id" name="Id" value="@Model.Id" style="display:none;">
+                <input type="text" class="form-control form-control-user" id="Descripcion" name="Descripcion" value="@Model.Descripcion" placeholder="Ingrese el gusto">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control form-control-user" id="Precio" name="Precio" value="@Model.Precio" placeholder="Ingrese el precio">
+            </div>
+            <button type="submit" class="btn btn-primary btn-user btn-block">Guardar</button>
+            <a href="/Pedido/PedidoList" class="btn btn-primary btn-user btn-block">
+                Cancelar
+            </a>
+        </form>
+    </div>
+</div>

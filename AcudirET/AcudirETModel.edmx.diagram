@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6eeb13c8213c47858ac0b8294adf6f57" Name="Diagram1">
+        <EntityTypeShape EntityType="AcudirEtModel.Cliente" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcudirEtModel.EstadoPedido" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcudirEtModel.MedioDePago" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcudirEtModel.Pedido" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcudirEtModel.Producto" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcudirEtModel.Repartidor" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <AssociationConnector Association="AcudirEtModel.FK_Pedido_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="AcudirEtModel.FK_Pedidos_EstadoPedido" ManuallyRouted="false" />
+        <AssociationConnector Association="AcudirEtModel.FK_Pedido_MedioPago" ManuallyRouted="false" />
+        <AssociationConnector Association="AcudirEtModel.FK_Pedido_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="AcudirEtModel.FK_Pedidos_Repartidor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
